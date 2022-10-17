@@ -9,7 +9,7 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #ffffff;
+  background-color: #5f8da3; /*edited css */
 }
 
 .form-signin {
@@ -31,21 +31,23 @@ body {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  border-color: #ADE5FF; /*edited css */
 }
 
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  border-color: #ADE5FF; /*edited css */
 }
 
-
+/*edited css */
 
 .btn-warning {
-    background-color: #f59f21;
+    background-color: #ADE5FF;
     color: #000000;
-    border-color: #f59f21;
-    border-radius: 25px;
+    border-color: #000000;
+    border-radius: 10px;
 }
 .btn-warning:hover,
 .btn-warning:focus,
@@ -55,3 +57,21 @@ body {
     border-color: #f59f21;
 }
 
+.mb-4 {
+  border-radius: 20px; /*edited css */
+}
+
+.btn-outline-dark {
+  background-color: #5f8da3;
+  color: #000000;
+  border-color: #000000;
+  border-radius: 10px;
+  margin: 10px;
+}
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active    {
+  background-color: #f59f21;
+  color: #000000;
+  border-color: #f59f21;
+}
