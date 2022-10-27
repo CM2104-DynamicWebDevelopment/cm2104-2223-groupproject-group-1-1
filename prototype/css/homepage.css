@@ -36,8 +36,25 @@ body {
   color: #000000;
   border-color: #000000;
 }
+
+.btn-primary {
+  background-color: #ADE5FF;
+  color: #000000;
+  border-color: #000000;
+  border-radius: 10px;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active    {
+  background-color: #5f8da3;
+  color: #000000;
+  border-color: #000000;
+}
 /*button css*/
 
 li {
   font-weight: bold;
 }
+
+
+
