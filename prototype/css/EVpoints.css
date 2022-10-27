@@ -43,10 +43,10 @@ body {
   }
 
   .sidebar {
-    margin: 140px 40px;
+    margin: 120px 20px;
     width: 20%;
-    height: auto;
-    text-align: left;
+    height: 450px;
+    float: left;
     border: 10px solid #5f8da3;
     background-color: #ade5ff;
     border-radius: 10px;
@@ -54,7 +54,7 @@ body {
   }
 
   .sidebarinsert{
-    display: flex;
     flex-direction: column;
     align-items: left;
-  }
+    width: 50%;
+    margin: 20px;  }
