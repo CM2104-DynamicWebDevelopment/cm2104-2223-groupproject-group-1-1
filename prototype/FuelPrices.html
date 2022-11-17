@@ -36,36 +36,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
     <section>
-      <div class="sidebar">
+      <form id="selectLocation" class="sidebar">
         <div class="sidebarinsert">
-          <label for="evcarmake"><b>Make</b></label>
-            <input type="text" id="evcarmake" name="evcarmake"><br><br>
+          <label for="Aberdeen"><b>Aberdeen</b></label>
+            <input type="submit" id="Aberdeen" name="Aberdeen"><br><br>
   
-            <label for="evcarmodel"><b>Model</b></label>
-            <input type="text" id="evcarmodel" name="evcarmodel"><br><br>
+            <label for="London"><b>London</b></label>
+            <input type="submit" id="London" name="London"><br><br>
   
-            <label for="evcaryear"><b>Year</b></label>
-            <input type="text" id="evcaryear" name="evcaryear"><br><br>
+            <label for="Edinburgh"><b>Edinburgh</b></label>
+            <input type="submit" id="Edinburgh" name="Edinburgh"><br><br>
         
-            <label for=""><b>Registration</b></label>
-					<input type="password" id="TEMP" name="TEMP"><br><br>
+            <label for="Glasgow"><b>Glasgow</b></label>
+            <input type="submit" id="Glasgow" name="Glasgow"><br><br>
         </div>
-      </div>
+      </form>
   
-      <!--main content table for ev car data-->
+      <!--main content table for fuel prices car data-->
       <article>
         <div class="fueltable">
               <table class="table table-bordered">
                 <thead>
-                  <th>Location</th>
-                  <th>Distance</th>
-                  <th>Super Unleaded</th>
-                  <th>Unleaded</th>
-                  <th>Super Diesel</th>
                   <th>Diesel</th>
+                  <th>DiselPlus</th>
+                  <th>sp95_e10</th>
+                  <th>sp95</th>
                 </thead>
-                <tbody>
-                  <!--php code goes here for API-->
+                <tbody id="resultsTable">
+                 <td id="results">Test</td>
+                 <td id="results">Test</td>
+                 <td id="results">Test</td>
+                 <td id="results">Test</td>
                 </tbody>
             </table>
           
