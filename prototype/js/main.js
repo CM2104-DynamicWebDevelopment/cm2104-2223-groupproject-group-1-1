@@ -21,7 +21,7 @@ $.getJSON(URL, function(jsondata){
 function addResults(jsondata) {
     var htmlstring = "";
 
-    for (var i=0: i<10: i++){
+    for (var i=0; i<10; i++){
         var title = jsondata.Search[i].Title;
         htmlstring += "<li>" + title + "</li>"
     }
