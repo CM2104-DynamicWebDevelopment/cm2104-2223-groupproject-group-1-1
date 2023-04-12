@@ -3,6 +3,9 @@
 var express = require('express');
 var app = express();
 
+//code to define the public "static" folder
+app.use(express.static('public'))
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
