@@ -1,0 +1,137 @@
+/*edited css */
+
+img {
+    border-radius: 5px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /*button css*/
+.btn-outline-warning {
+    background-color: #ADE5FF;
+    color: #000000;
+    border-color: #000000;
+    border-radius: 10px;
+  }
+  .btn-outline-warning:hover,
+  .btn-outline-warning:focus,
+  .btn-outline-warning:active    {
+    background-color: #5f8da3;
+    color: #000000;
+    border-color: #000000;
+  }
+
+  .btn-warning {
+    background-color: #ADE5FF;
+    color: #000000;
+    border-color: #000000;
+    border-radius: 10px;
+  }
+  .btn-warning:hover,
+  .btn-warning:focus,
+  .btn-warning:active    {
+    background-color: #5f8da3;
+    color: #000000;
+    border-color: #000000;
+  }
+  /*button css*/
+
+  li {
+    font-weight: bold;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    margin-top: 100px;
+    bottom: 0;
+    width: 100%;
+    background-color: #5f8da3;
+    color: white;
+    text-align: center;
+  }
+  
+  .buttoncontainer {
+    text-align: center;
+  }
+  
+  button {
+    background-color: #ade5ff;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 10px;
+  }
+  
+  .form-signin {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-color: #ADE5FF; /*edited css */
+  }
+
+  .form-signin input[type="name"] {
+    margin-bottom: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-color: #ADE5FF; /*edited css */
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 0px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-color: #ADE5FF; /*edited css */
+  }
+  
+  /*edited css */
+  
+  .btn-warning {
+      background-color: #ADE5FF;
+      color: #000000;
+      border-color: #000000;
+      border-radius: 10px;
+  }
+  .btn-warning:hover,
+  .btn-warning:focus,
+  .btn-warning:active    {
+      background-color: #f59f21;
+      color: #000000;
+      border-color: #f59f21;
+  }
+  
+  .mb-4 {
+    border-radius: 20px; /*edited css */
+  }
+  
+  .btn-outline-dark {
+    background-color: #5f8da3;
+    color: #000000;
+    border-color: #000000;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  .btn-outline-dark:hover,
+  .btn-outline-dark:focus,
+  .btn-outline-dark:active    {
+    background-color: #f59f21;
+    color: #000000;
+    border-color: #f59f21;
+  }
+    
