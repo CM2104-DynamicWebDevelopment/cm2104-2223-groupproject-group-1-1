@@ -1,7 +1,7 @@
 // server.js
 // load the things we need
-const express = require('express');
-const app = express();
+var express = require('express');
+var app = express();
 
 //code to define the public "static" folder
 app.use(express.static('public'))
