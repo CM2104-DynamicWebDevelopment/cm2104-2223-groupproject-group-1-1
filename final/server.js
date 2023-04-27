@@ -1,35 +1,106 @@
-// server.js
-// load the things we need
-var express = require('express');
-var app = express();
 
-//code to define the public "static" folder
+const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
+const url = "mongodb://localhost:27017/loginDB";
+const express = require('express'); //npm install express
+const session = require('express-session'); //npm install express-session
+const bodyParser = require('body-parser'); //npm install body-parser
+const app = express();
+
+app.use(session({ secret: 'example' }));
+
 app.use(express.static('public'))
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
-// use res.render to load up an ejs view file
+app.set("view engine", "ejs");
 
-// index page
-app.get('/', function(req, res) {
- res.render('pages/index');
+var db;
+
+//this is our connection to the mongo db, ts sets the variable db as our database
+MongoClient.connect(url, function(err, database) {
+  if (err) throw err;
+  db = database;
+  app.listen(8080);
+  console.log('listening on 8080');
 });
 
-// Ev charge point page
-app.get('/EVchargePoints', function(req, res) {
- res.render('pages/EVchargePoints');
+
+//********** GET ROUTES - Deal with displaying pages ***************************
+
+// Showing home page
+app.get("/", function (req, res) {
+  res.render("pages/home");
 });
 
-// login page
+// Showing root route page/login
 app.get('/login', function(req, res) {
-    res.render('pages/login');
-   });
+  res.render('pages/login');
+});
 
-// create accounnt page
-app.get('/createAccount', function(req, res) {
-    res.render('pages/createAccount');
-   });
+// Showing createAccount page
+app.get("/createAccount", function (req, res) {  
+  res.render("pages/createAccount");
+});
 
-app.listen(8080);
-console.log('8080 is the magic port');
+// Showing EVchargePoints page
+app.get("/EVchargePoints", function (req, res) {
+    res.render("pages/EVchargePoints");
+});
+
+app.get('/logout', function(req, res) {
+  req.session.loggedin = false;
+  req.session.destroy();
+  console.log('logged out!')
+  res.redirect('/');
+});
+
+
+//********** POST ROUTES - Deal with processing data from forms ***************************
+
+
+// Handling user signup
+app.post('/register', function(req, res) {
+
+  //we create the data string from the form components that have been passed in
+
+var datatostore = {
+
+"email":req.body.email,
+"password":req.body.password}
+
+
+//once created we just run the data string against the database and all our new data will be saved/
+  db.collection('users').save(datatostore, function(err, result) {
+    if (err) throw err;
+    console.log('saved to database')
+    //when complete redirect to the index
+    res.redirect('/')
+  })
+});
+
+
+app.post('/login', function(req, res) {
+  console.log(JSON.stringify(req.body))
+  var email = req.body.email;
+  var password = req.body.password;
+
+
+ 
+  db.collection('users').findOne({"email":email}, function(err, result) {
+    if (err) throw err;
+
+
+    if(!result){res.redirect('/login');return}
+
+
+
+    if(result.password == password){ req.session.loggedin = true; res.redirect('/') 
+    console.log('logged in!')}
+
+
+
+    else{res.redirect('/login')}
+  });
+});
