@@ -29,6 +29,12 @@ MongoClient.connect(url, function(err, database) {
 
 //********** GET ROUTES - Deal with displaying pages ***************************
 
+app.get('/', function (req, res) {
+  if(!db){
+    res.render('pages/error');
+    return;
+  }
+
 // Showing home page
 app.get("/", function (req, res) {
   res.render("pages/home");
@@ -73,7 +79,11 @@ var datatostore = {
 
 //once created we just run the data string against the database and all our new data will be saved/
   db.collection('users').save(datatostore, function(err, result) {
-    if (err) throw err;
+    if(err){
+      //render the bad error page and passdown the error
+      res.render('pages/baderror',{error:err} );
+      return;
+    }
     console.log('saved to database')
     //when complete redirect to the index
     res.redirect('/')
