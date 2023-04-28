@@ -1,4 +1,4 @@
-
+//dependencies 
 const MongoClient = require('mongodb').MongoClient; //npm install mongodb@2.2.32
 const url = "mongodb://localhost:27017/loginDB";
 const express = require('express'); //npm install express
@@ -29,15 +29,24 @@ MongoClient.connect(url, function(err, database) {
 
 //********** GET ROUTES - Deal with displaying pages ***************************
 
-app.get('/', function (req, res) {
-  if(!db){
-    res.render('pages/error');
-    return;
-  }
-
 // Showing home page
 app.get("/", function (req, res) {
   res.render("pages/home");
+});
+
+// Showing our mission page
+app.get("/ourMission", function (req, res){
+  res.render("pages/ourMission");
+});
+
+// Showing about us page
+app.get("/aboutUs", function (req, res){
+  res.render("pages/aboutUs");
+});
+
+// Showing contact us page
+app.get("/contactUs", function (req, res){
+  res.render("pages/contactUs");
 });
 
 // Showing root route page/login
@@ -55,10 +64,10 @@ app.get("/EVchargePoints", function (req, res) {
     res.render("pages/EVchargePoints");
 });
 
+//log out button/session end
 app.get('/logout', function(req, res) {
   req.session.loggedin = false;
   req.session.destroy();
-  console.log('logged out!')
   res.redirect('/');
 });
 
@@ -85,12 +94,13 @@ var datatostore = {
       return;
     }
     console.log('saved to database')
-    //when complete redirect to the index
+    //when complete redirect to the homepage
     res.redirect('/')
   })
 });
 
 
+//handling the login form data
 app.post('/login', function(req, res) {
   console.log(JSON.stringify(req.body))
   var email = req.body.email;
@@ -99,13 +109,18 @@ app.post('/login', function(req, res) {
 
  
   db.collection('users').findOne({"email":email}, function(err, result) {
-    if (err) throw err;
+     if(err){
+      //render the bad error page and passdown the error
+      res.render('pages/baderror',{error:err} );
+      return;
+    }
 
 
-    if(!result){res.redirect('/login');return}
+    //checking to see if the details do not match
+    if(!result){res.redirect('/login'),console.log('this isnt a user') ;return}
 
 
-
+    // if the details do match sends message to terminal and logs user in
     if(result.password == password){ req.session.loggedin = true; res.redirect('/') 
     console.log('logged in!')}
 
